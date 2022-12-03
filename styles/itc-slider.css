@@ -1,0 +1,99 @@
+/**
+ * ItcSlider
+ * @version 1.0.0
+ * @author https://github.com/itchief
+ * @copyright Alexander Maltsev 2020 - 2022
+ * @license MIT (https://github.com/itchief/ui-components/blob/master/LICENSE)
+ * @tutorial https://itchief.ru/javascript/slider
+ */
+
+.itc-slider {
+  position: relative;
+}
+
+.itc-slider__wrapper {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.itc-slider__items {
+  display: flex;
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+.itc-slider__transition-none {
+  transition: none;
+}
+
+.itc-slider__item {
+  flex: 0 0 100%;
+  max-width: 100%;
+  user-select: none;
+  will-change: transform;
+}
+
+/* кнопки влево и вправо */
+.itc-slider__btn {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  text-align: center;
+  background: #fff;
+  border: none;
+  transform: translateY(-50%);
+  cursor: pointer;
+  transition: backround .2s ease;
+}
+
+
+
+.itc-slider__btn_prev {
+  left: 0;
+}
+
+.itc-slider__btn_next {
+  right: 0;
+}
+
+.itc-slider__btn:hover:not(.itc-slider__btn_hide) {
+  background: #BFE55E;
+  outline: 0;
+}
+
+.itc-slider__btn::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px; 
+}
+
+.itc-slider__btn_prev::before {
+  transition: border-color .2s ease;
+  border: 10px solid transparent; border-right: 20px solid #BFE55E;
+  transform: translateX(-25%);
+ 
+}
+.itc-slider__btn_prev:not(.itc-slider__btn_hide):hover::before
+{
+  border: 10px solid transparent; border-right: 20px solid #fff;
+}
+.itc-slider__btn_next::before {
+  transition: border-color .2s ease;
+  border: 10px solid transparent; border-left: 20px solid #BFE55E;
+  transform: translateX(25%);
+}
+.itc-slider__btn_next:not(.itc-slider__btn_hide):hover::before {
+  border: 10px solid transparent; border-left: 20px solid #fff;
+}
+
+.itc-slider__btn_hide {
+  opacity: .8;
+  cursor: default;
+}
